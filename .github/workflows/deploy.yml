@@ -9,6 +9,12 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18.x'
+      - run: npm install
+      - run: npm run build
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v3.0
         with:
